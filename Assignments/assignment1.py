@@ -12,28 +12,28 @@ import sys
 if len(sys.argv)<2:
     print("give your web url in the command line")
     exit()
-url=sys.argv[1]
+weburl=sys.argv[1]
 try:
-    response=requests.get(url)
+    r=requests.get(weburl)
 except:
     print("error in fetching the page")
     exit()
-html=response.text
-soup=BeautifulSoup(html,'html.parser')
+htmls=r.text
+s=BeautifulSoup(htmls,'html.parser')
 
 # title
-if soup.title:
+if s.title:
     print("TITLE:")
-    print(soup.title.get_text().strip())
+    print(s.title.get_text().strip())
 
 # body
 print("\nBODY:")
-if soup.body:
-    print(soup.body.get_text(separator='',strip=True))
+if s.body:
+    print(s.body.get_text(separator='',strip=True))
 
 # links
 print("\nLINKS:")
-for a in soup.find_all('a'):
-    link=a.get('href')
-    if link:
-        print(link)
+for i in s.find_all('i'):
+    links=i.get('href')
+    if links:
+        print(links)
