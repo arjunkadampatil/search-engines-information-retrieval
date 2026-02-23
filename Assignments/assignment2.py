@@ -54,14 +54,14 @@ def getBody(weburls):
     return ""
 
 # comparision of the two urls
-url1=input("1st url")
-url2=input("2nd url")
-txt1=getBody(url1)
-txt2=getBody(url2)
-f1=wordFreq(txt1)
-f2=wordFreq(txt2)
-s1=simhashing(f1)
-s2=simhashing(f2)
-x=s1^s2
+url1st=input("1st url")
+url2nd=input("2nd url")
+t1=getBody(url1st)
+t2=getBody(url2nd)
+f1=wordFreq(t1)
+f2=wordFreq(t2)
+m=simhashing(f1)
+n=simhashing(f2)
+x=m^n
 sameBits=64-bin(x).count('1')
 print("Common bits=",sameBits)
