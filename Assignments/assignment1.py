@@ -3,11 +3,12 @@
 # -------------------------------
 
 
+# required libraries
 import requests
 from bs4 import BeautifulSoup
 import sys
 
-# check command line input
+# check the input of command line
 if len(sys.argv)<2:
     print("give your web url in the command line")
     exit()
