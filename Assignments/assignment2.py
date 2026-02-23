@@ -8,14 +8,6 @@ import requests
 import re
 from bs4 import BeautifulSoup
 
-# fetching the body of webpage
-def getBody(weburls):
-    r=requests.get(weburls)
-    s=BeautifulSoup(r.text,'html.parser')
-    if s.body:
-        return s.body.get_text(separator='',strip=True)
-    return ""
-
 # rolling hash (polynomial)
 a=53
 b=2**64
@@ -52,6 +44,14 @@ def wordFreq(txt):
         else:
             f[i]=1
     return f
+
+# fetching the body of webpage
+def getBody(weburls):
+    r=requests.get(weburls)
+    s=BeautifulSoup(r.text,'html.parser')
+    if s.body:
+        return s.body.get_text(separator='',strip=True)
+    return ""
 
 # comparision of the two urls
 url1=input("1st url")
