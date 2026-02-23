@@ -9,13 +9,13 @@ import sys
 
 # check command line input
 if len(sys.argv)<2:
-    print("give web url in command line")
+    print("give your web url in the command line")
     exit()
 url=sys.argv[1]
 try:
     response=requests.get(url)
 except:
-    print("error fetching page")
+    print("error in fetching the page")
     exit()
 html=response.text
 soup=BeautifulSoup(html,'html.parser')
@@ -28,7 +28,7 @@ if soup.title:
 # body
 print("\nBODY:")
 if soup.body:
-    print(soup.body.get_text(separator=' ',strip=True))
+    print(soup.body.get_text(separator='',strip=True))
 
 # links
 print("\nLINKS:")
